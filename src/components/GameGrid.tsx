@@ -16,7 +16,9 @@ const GameGrid = () => {
   const [error, setError] = useState('')
 
   useEffect(() => {
-    apiClient.get('/character').then((res) => setCharacters())
+    apiClient
+      .get<FetchCharactersResponse>('/character')
+      .then((res) => setCharacters(res.data.results))
   })
 
   return <div>GameGrid</div>
