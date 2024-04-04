@@ -12,7 +12,7 @@ interface FetchCharactersResponse {
 }
 
 const GameGrid = () => {
-  const [characters, setCharacters] = useState([])
+  const [characters, setCharacters] = useState<Character[]>([])
   const [error, setError] = useState('')
 
   useEffect(() => {
