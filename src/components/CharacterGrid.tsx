@@ -8,20 +8,27 @@ interface Character {
 
 interface FetchCharactersResponse {
   count: number
-  results: Character[]
+  data: Character[]
 }
 
-const GameGrid = () => {
+const CharacterGrid = () => {
   const [characters, setCharacters] = useState<Character[]>([])
   const [error, setError] = useState('')
 
   useEffect(() => {
     apiClient
       .get<FetchCharactersResponse>('/character')
-      .then((res) => setCharacters(res.data.results))
+      .then((res) => setCharacters(res.data.data))
+      .catch((error) => setError(error.message))
   })
 
-  return <div>GameGrid</div>
+  return (
+    <ul>
+      {characters.map((character) => (
+        <li key={character.id}>{character.name}</li>
+      ))}
+    </ul>
+  )
 }
 
-export default GameGrid
+export default CharacterGrid
