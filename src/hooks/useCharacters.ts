@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import apiClient from "../services/api-client"
 
-interface Character {
+export interface Character {
   id: number
   name: string
 }
