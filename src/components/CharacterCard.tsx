@@ -7,7 +7,7 @@ interface Props {
 
 const CharacterCard = ({ character }: Props) => {
   return (
-    <Card borderRadius={10}>
+    <Card borderRadius={10} overflow='hidden'>
       <Image src={character.imageUrl} />
       <CardBody>
         <Heading>{character.name}</Heading>
