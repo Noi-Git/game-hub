@@ -12,15 +12,22 @@ interface FetchCharactersResponse {
 }
 
 const useCharacters = () => {
+  const controller = new AbortController()
+  const signal = controller.signal
+
   const [characters, setCharacters] = useState<Character[]>([])
   const [error, setError] = useState('')
 
   useEffect(() => {
     apiClient
-      .get<FetchCharactersResponse>('/character')
+      .get<FetchCharactersResponse>('/character',{signal})
       .then((res) => setCharacters(res.data.data))
-      .catch((error) => setError(error.message))
-  })
+      .catch((error) => 
+        setError(error.message)
+      )
+
+      // return controller.abort() //clean up
+  }, []) 
 
   return {characters, error}
 }
