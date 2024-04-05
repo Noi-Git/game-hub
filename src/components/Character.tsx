@@ -4,7 +4,7 @@ interface Props {
   character: Character
 }
 
-const Character = () => {
+const Character = ({ character }: Props) => {
   return <div>Character</div>
 }
 
