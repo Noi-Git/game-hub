@@ -1,10 +1,16 @@
-import { useEffect, useState } from "react"
-import apiClient from "../services/api-client"
+import { useEffect, useState } from 'react'
+import apiClient from '../services/api-client'
 
+interface Platform {
+  id: number
+  name: string
+  slug: string
+}
 export interface Game {
   id: number
   name: string
   background_image: string
+  parent_platforms: { platform: Platform }[]
 }
 interface FetchGamesResponse {
   count: number
@@ -20,16 +26,14 @@ const useGames = () => {
 
   useEffect(() => {
     apiClient
-      .get<FetchGamesResponse>('/games',{signal})
+      .get<FetchGamesResponse>('/games', { signal })
       .then((res) => setGames(res.data.results))
-      .catch((error) => 
-        setError(error.message)
-      )
+      .catch((error) => setError(error.message))
 
-      // return controller.abort() //clean up
-  }, []) 
+    // return controller.abort() //clean up
+  }, [])
 
-  return {games, error}
+  return { games, error }
 }
 
 export default useGames
