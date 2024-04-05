@@ -6,7 +6,6 @@ export interface Game {
   name: string
   background_image: string
 }
-
 interface FetchGamesResponse {
   count: number
   results: Game[]
@@ -18,17 +17,6 @@ const useGames = () => {
 
   const [games, setGames] = useState<Game[]>([])
   const [error, setError] = useState('')
-
-  // useEffect(() => {
-  //   apiClient
-  //     .get<FetchCharactersResponse>('/character',{signal})
-  //     .then((res) => setCharacters(res.data.data))
-  //     .catch((error) => 
-  //       setError(error.message)
-  //     )
-
-  //     // return controller.abort() //clean up
-  // }, []) 
 
   useEffect(() => {
     apiClient
