@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
-import apiClient from '../services/api-client'
 import { Text } from '@chakra-ui/react'
+import useCharacters from '../hooks/useCharacters'
 
 const CharacterGrid = () => {
+  const { characters, error } = useCharacters()
+
   return (
     <>
       {error && <Text>{error}</Text>}
