@@ -4,6 +4,7 @@ import apiClient from "../services/api-client"
 export interface Character {
   id: number
   name: string
+  imageUrl: string
 }
 
 interface FetchCharactersResponse {
