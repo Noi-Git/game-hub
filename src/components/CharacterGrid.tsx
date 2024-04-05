@@ -8,7 +8,7 @@ const CharacterGrid = () => {
   return (
     <>
       {error && <Text>{error}</Text>}
-      <SimpleGrid columns={3} spacing={10}>
+      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} spacing={10}>
         {characters.map((character) => (
           <CharacterCard key={character.id} character={character} />
         ))}

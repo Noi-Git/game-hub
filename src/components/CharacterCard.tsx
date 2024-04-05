@@ -10,7 +10,7 @@ const CharacterCard = ({ character }: Props) => {
     <Card borderRadius={10} overflow='hidden'>
       <Image src={character.imageUrl} />
       <CardBody>
-        <Heading>{character.name}</Heading>
+        <Heading fontSize='2xl'>{character.name}</Heading>
       </CardBody>
     </Card>
   )
