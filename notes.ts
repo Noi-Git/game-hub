@@ -9,3 +9,5 @@
 // https://github.com/public-apis/public-apis?tab=readme-ov-file#games--comics
 
 // https://disneyapi.dev/
+
+// https://api.rawg.io/docs/#operation/creator-roles_list
