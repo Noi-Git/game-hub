@@ -11,12 +11,13 @@ import { SiNintendo } from 'react-icons/si'
 import { BsGlobe } from 'react-icons/bs'
 import { Icon, Text } from '@chakra-ui/react'
 import { Platform } from '../hooks/useGames'
+import { IconType } from 'react-icons'
 
 interface Props {
   platforms: Platform[]
 }
 const PlatformIconList = ({ platforms }: Props) => {
-  const iconMap = {
+  const iconMap: { [key: string]: IconType } = {
     pc: FaWindows,
     playstation: FaPlaystation,
     xbox: FaXbox,
