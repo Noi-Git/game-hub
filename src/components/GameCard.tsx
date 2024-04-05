@@ -11,9 +11,6 @@ const GameCard = ({ game }: Props) => {
       <Image src={game.background_image} />
       <CardBody>
         <Heading fontSize='xl'>{game.name}</Heading>
-        {game.parent_platforms.map(({ platform }) => (
-          <Text>{platform.name}</Text>
-        ))}
       </CardBody>
     </Card>
   )
