@@ -7,7 +7,7 @@ interface Props {
 
 const CharacterCard = ({ character }: Props) => {
   return (
-    <Card>
+    <Card borderRadius={10}>
       <Image src={character.imageUrl} />
       <CardBody>
         <Heading>{character.name}</Heading>
