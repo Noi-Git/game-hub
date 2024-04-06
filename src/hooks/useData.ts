@@ -7,7 +7,7 @@ interface FetchResponse<T> {
   results: T[]
 }
 
-const useData = <T>() => {
+const useData = <T>(endpoint: string) => {
   const controller = new AbortController()
   const signal = controller.signal
 
@@ -19,9 +19,9 @@ const useData = <T>() => {
     setLoading(true)
 
     apiClient
-      .get<FetchGenresResponse>('/genres', { signal })
+      .get<FetchResponse<T>>(endpoint, { signal })
       .then((res) => {
-        setGenres(res.data.results)
+        setData(res.data.results)
         setLoading(false)
       })
       .catch((error) => {
@@ -34,7 +34,7 @@ const useData = <T>() => {
     // return controller.abort() //clean up
   }, [])
 
-  return { genres, error, isLoading }
+  return { data, error, isLoading }
 }
 
 export default useData
