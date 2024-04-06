@@ -2,21 +2,16 @@ import { useEffect, useState } from 'react'
 import { CanceledError } from 'axios'
 import apiClient from '../services/api-client'
 
-interface Genre {
-  id: number
-  name: string
-}
-
-interface FetchGenresResponse {
+interface FetchResponse<T> {
   count: number
-  results: Genre[]
+  results: T[]
 }
 
-const useGenres = () => {
+const useData = <T>() => {
   const controller = new AbortController()
   const signal = controller.signal
 
-  const [genres, setGenres] = useState<Genre[]>([])
+  const [data, setData] = useState<T[]>([]) //<T> is generic type
   const [error, setError] = useState('')
   const [isLoading, setLoading] = useState(false)
 
@@ -42,4 +37,4 @@ const useGenres = () => {
   return { genres, error, isLoading }
 }
 
-export default useGenres
+export default useData
